@@ -1,0 +1,98 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body, button {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+h1 {
+    color: white;
+    font-size: 30px;
+}
+
+body {
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calculator {
+    width: 400px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(10, 26, 77, 0.651);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 3px solid white;
+    box-shadow: 15px 15px rgb(154, 198, 204);
+}
+
+.display {
+    width: 400px;
+    height: 100px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 0);
+    flex: 0 0 auto;
+    text-align: right;
+    padding: 12px;
+}
+
+.display-text {
+    color: rgb(154, 198, 204);
+    font-size: 48px;
+    margin: 0px
+}
+
+.buttons {
+    display: flex;
+    width: 100%;
+    gap: 12px;
+    margin-top: 20px;
+    
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 12px;
+    align-items: center;
+}
+
+button, .column div {
+    font-size: 18px;
+    border-radius: 10px;
+    height: 65px;
+    width: 75px;
+    padding: 0px;
+}
+
+.number, .operator.equals {
+    background-color: rgb(35, 56, 65);
+    color: white;
+}
+
+.clear {
+    background-color: rgb(119, 22, 22);
+    color: white;
+}
+
+.operator {
+    background-color: rgb(154, 198, 204);
+}
+
+#add {
+    flex: 1;
+}
+
+button:hover {
+    border: 2px solid white;
+}
