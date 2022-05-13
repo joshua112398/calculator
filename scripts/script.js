@@ -69,7 +69,7 @@ function ifEqualsInput(obj) {
   obj.secondNumber = +(display.textContent);
   let solution = operate(obj.operator, obj.firstNumber, 
       obj.secondNumber);
-  solution = solution;
+  solution = parseFloat(solution.toFixed(6));
   clearDisplay();
   displayInput(solution);
   obj = clearData(obj);
@@ -121,6 +121,8 @@ function onKeyPress() {
   displayInput(0);
 
   let lastClicked = "";
+  // Prevent user from inputting numbers with two decimal points
+  let decimalExists = false; 
 
   const buttons = document.querySelectorAll('button');
   buttons.forEach((button) => {
@@ -131,6 +133,14 @@ function onKeyPress() {
         if (display.textContent === "0") {
           clearDisplay();
         } 
+        
+        if (button.textContent === ".") {
+          if (decimalExists === true) {
+            return; // don't do anything if trying to enter a second decimal point
+          }
+          decimalExists = true;
+        }
+
         if (lastClicked === "=") {
           clearDisplay();
           equation = clearData(equation);
@@ -145,6 +155,7 @@ function onKeyPress() {
       } else if (button.getAttribute("class") === "operator") {
         equation = ifOperatorInput(equation, button, lastClicked);
         lastClicked = button.textContent;
+        decimalExists = false;
 
       } else if (button.textContent === "=") {
         if (lastClicked !== "/" &&lastClicked !== "x" &&
@@ -152,6 +163,7 @@ function onKeyPress() {
           equation = ifEqualsInput(equation);
           lastClicked = button.textContent;
         }
+        decimalExists = false;
 
       } else {
         clearDisplay();
